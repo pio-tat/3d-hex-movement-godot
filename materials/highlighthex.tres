@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bugrxj5qxkex7"]
+
+[ext_resource type="Shader" path="res://shaders/highlight.gdshader" id="1_ltq7p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ydc34"]
+render_priority = 0
+shader = ExtResource("1_ltq7p")
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_amount = 1.3
+shader_parameter/rim_sharpness = 2.25
+
+[resource]
+next_pass = SubResource("ShaderMaterial_ydc34")
+albedo_color = Color(0, 0.431373, 0.145098, 1)

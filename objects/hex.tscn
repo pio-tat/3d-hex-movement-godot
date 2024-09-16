@@ -1,0 +1,25 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1gdhhbevki4q"]
+
+[ext_resource type="ArrayMesh" uid="uid://bpvxx6lcgoxss" path="res://hexagon.obj" id="1_i1exa"]
+[ext_resource type="Script" path="res://scripts/Hex.cs" id="2_ufmwk"]
+[ext_resource type="Shader" path="res://shaders/highlight.gdshader" id="2_uxrjq"]
+[ext_resource type="Material" uid="uid://c1nhw5flamkkx" path="res://materials/hex.tres" id="3_avmd2"]
+[ext_resource type="Shader" path="res://shaders/disabled.gdshader" id="3_jdm8m"]
+[ext_resource type="PackedScene" uid="uid://dil2bn7emob2d" path="res://highlight.tscn" id="6_kxdk7"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8ccef"]
+data = PackedVector3Array(-0.866, 0, -0.5, 0, 0, 0, 0, 0, -1, -0.866, 0, 0.5, 0, 0, 0, -0.866, 0, -0.5, 0, 0, 1, 0, 0, 0, -0.866, 0, 0.5, 0.866, 0, 0.5, 0, 0, 0, 0, 0, 1, 0.866, 0, -0.5, 0, 0, 0, 0.866, 0, 0.5, 0, 0, -1, 0, 0, 0, 0.866, 0, -0.5, 0, 0.7136, -1, 0, 0.7136, 0, -0.866, 0.7136, -0.5, -0.866, 0.7136, -0.5, 0, 0.7136, 0, -0.866, 0.7136, 0.5, -0.866, 0.7136, 0.5, 0, 0.7136, 0, 0, 0.7136, 1, 0, 0.7136, 1, 0, 0.7136, 0, 0.866, 0.7136, 0.5, 0.866, 0.7136, 0.5, 0, 0.7136, 0, 0.866, 0.7136, -0.5, 0.866, 0.7136, -0.5, 0, 0.7136, 0, 0, 0.7136, -1, 0, 0, -1, 0.866, 0, -0.5, 0, 0.7136, -1, 0, 0.7136, -1, 0.866, 0, -0.5, 0.866, 0.7136, -0.5, -0.866, 0, -0.5, 0, 0, -1, -0.866, 0.7136, -0.5, -0.866, 0.7136, -0.5, 0, 0, -1, 0, 0.7136, -1, 0.866, 0, -0.5, 0.866, 0, 0.5, 0.866, 0.7136, -0.5, 0.866, 0.7136, -0.5, 0.866, 0, 0.5, 0.866, 0.7136, 0.5, 0.866, 0, 0.5, 0, 0, 1, 0.866, 0.7136, 0.5, 0.866, 0.7136, 0.5, 0, 0, 1, 0, 0.7136, 1, 0, 0, 1, -0.866, 0, 0.5, 0, 0.7136, 1, 0, 0.7136, 1, -0.866, 0, 0.5, -0.866, 0.7136, 0.5, -0.866, 0, 0.5, -0.866, 0, -0.5, -0.866, 0.7136, 0.5, -0.866, 0.7136, 0.5, -0.866, 0, -0.5, -0.866, 0.7136, -0.5)
+
+[node name="hex" type="StaticBody3D" groups=["tiles"]]
+script = ExtResource("2_ufmwk")
+highlightShader = ExtResource("2_uxrjq")
+disabledShader = ExtResource("3_jdm8m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("3_avmd2")
+mesh = ExtResource("1_i1exa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_8ccef")
+
+[node name="Highlight" parent="." instance=ExtResource("6_kxdk7")]

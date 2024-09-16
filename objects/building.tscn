@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://33wrcjo11e7"]
+
+[ext_resource type="Script" path="res://scripts/Building.cs" id="1_ik55k"]
+[ext_resource type="PackedScene" uid="uid://dil2bn7emob2d" path="res://highlight.tscn" id="2_vgsbr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2rwo"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_prig8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rfa4a"]
+size = Vector3(1, 2.01292, 1)
+
+[node name="Building" type="StaticBody3D"]
+script = ExtResource("1_ik55k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_n2rwo")
+mesh = SubResource("CylinderMesh_prig8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rfa4a")
+
+[node name="Highlight" parent="." instance=ExtResource("2_vgsbr")]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://dil2bn7emob2d"]
+
+[ext_resource type="Script" path="res://scripts/Highlight.cs" id="1_jf0aw"]
+[ext_resource type="Shader" path="res://shaders/highlight.gdshader" id="2_ca2h5"]
+[ext_resource type="Shader" path="res://shaders/disabled.gdshader" id="3_62f5f"]
+
+[node name="Highlight" type="Node3D"]
+script = ExtResource("1_jf0aw")
+glowShader = ExtResource("2_ca2h5")
+disabledShader = ExtResource("3_62f5f")
